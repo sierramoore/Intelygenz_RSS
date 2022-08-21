@@ -13,15 +13,18 @@ type Props = StackScreenProps<'Home'>;
 
 export const Home: FC<Props> = ({ navigation }) => {
     const [rssData, setRssData] = useState<Feed>();
+
     useEffect(() => {
        fetchRss('https://www.nasa.gov/rss/dyn/breaking_news.rss')
         .then((response) => setRssData(response));
     }, []);
 
     const sortedRssData = rssData !== undefined ? sortArrByDate(rssData.items) : [];
+
     const handleArticlePress = (article: FeedItem) => {
         navigation.navigate('Article', article);
     };
+    
     return (
         <>
             <Header title="RSS FEED" iconName={Icons.arrowRight}/>

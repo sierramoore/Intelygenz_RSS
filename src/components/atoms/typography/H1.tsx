@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import { Text } from 'react-native';
 import styled from 'styled-components';
 import { TypographyProps } from ".";
-import {colors} from '../../../global/colors'
+import { colors } from '../../../global/colors'
 
 export const TypographyStyle = styled(Text)<TypographyProps>`
   color: ${(props) => props.color || colors.primary};
